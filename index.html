@@ -5,71 +5,285 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Super Bit Boy</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg1: #090b17;
+      --bg2: #121935;
+      --panel: rgba(255,255,255,0.07);
+      --panel-border: rgba(255,255,255,0.10);
+      --text: #f5f7ff;
+      --muted: #d5dcff;
+      --accent: #8b7cff;
+      --accent2: #4ed7ff;
+      --button-dark: #252d5b;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0f1020;
-      color: #f5f7ff;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(111, 86, 255, 0.30), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(78, 215, 255, 0.18), transparent 25%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
     }
+
     .wrap {
-      max-width: 900px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 48px 24px;
+      padding: 40px 20px 70px;
     }
+
     .hero {
       text-align: center;
-      padding: 40px 0;
+      padding: 30px 0 20px;
     }
+
+    .logo {
+      width: 180px;
+      max-width: 60vw;
+      height: auto;
+      display: block;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(123, 109, 255, 0.30);
+    }
+
     h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
+      font-size: 54px;
+      line-height: 1.08;
+      letter-spacing: 0.3px;
     }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
+
+    .tagline {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--muted);
     }
-    .card {
-      background: #1a1d35;
-      border-radius: 16px;
-      padding: 24px;
-      margin-top: 24px;
+
+    .hero-buttons {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
     }
-    a {
-      color: #8fd3ff;
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 14px;
       text-decoration: none;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), #6a96ff);
+      box-shadow: 0 10px 24px rgba(97, 95, 255, 0.24);
     }
-    ul {
+
+    .button.secondary {
+      background: var(--button-dark);
+      box-shadow: none;
+    }
+
+    .section {
+      margin-top: 34px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(6px);
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+    }
+
+    .section-intro {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .youtube-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .youtube-box a {
+      color: var(--accent2);
+      font-weight: bold;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .youtube-box a:hover {
+      text-decoration: underline;
+    }
+
+    .video-list {
+      margin: 0;
       padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .footer {
+      margin-top: 36px;
+      text-align: center;
+      color: #aeb8ec;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .section {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="hero">
+    <section class="hero">
+      <img src="logo.png" alt="Super Bit Boy logo" class="logo">
       <h1>Super Bit Boy</h1>
-      <p>Music and sound effect packs for game developers.</p>
-      <p>Creating game-ready audio for Unity, Fab, and itch.io.</p>
-    </div>
+      <p class="tagline">
+        Music and sound effect packs for game developers, built for Unity Asset Store, Fab, and itch.io.
+        Focused on cozy, platformer, sci-fi, fantasy, and polished game-ready audio.
+      </p>
 
-    <div class="card">
-      <h2>Current Packs</h2>
-      <ul>
-        <li>Cozy Game Music Pack</li>
-        <li>Sci-Fi Music Pack</li>
-        <li>Casual UI SFX Pack</li>
-        <li>Epic RPG Magic SFX Pack</li>
-        <li>Sci-Fi Environmental SFX Pack</li>
-      </ul>
-    </div>
+      <div class="hero-buttons">
+        <a class="button" href="https://www.youtube.com/@SuperBitBoyAudio" target="_blank" rel="noopener noreferrer">Visit YouTube Channel</a>
+        <a class="button secondary" href="#music-packs">Music Packs</a>
+        <a class="button secondary" href="#sfx-packs">SFX Packs</a>
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>Links</h2>
-      <ul>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">Unity Asset Store</a></li>
-        <li><a href="#">Fab</a></li>
-        <li><a href="#">itch.io</a></li>
-      </ul>
+    <section class="section" id="music-packs">
+      <h2>Music Packs</h2>
+      <p class="section-intro">
+        Original background music collections designed for indie developers, trailers, menus, gameplay loops, and game world atmosphere.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Super Bit Boy’s Cozy Game Music Pack</h3>
+          <p>Warm, relaxing, feel-good music for cozy games, life sims, casual projects, and calm indie worlds.</p>
+        </div>
+
+        <div class="card">
+          <h3>Super Bit Boy’s Sci-Fi Action Music Pack</h3>
+          <p>Energetic futuristic music for sci-fi action, space settings, cyber-tech worlds, and high-intensity gameplay.</p>
+        </div>
+
+        <div class="card">
+          <h3>Super Bit Boy’s Platformer Adventure Music Pack</h3>
+          <p>Upbeat and adventurous music for platformers, exploration, colorful levels, and light action gameplay.</p>
+        </div>
+
+        <div class="card">
+          <h3>Super Bit Boy’s Epic RPG Music Pack</h3>
+          <p>Heroic fantasy music built for quests, exploration, emotional story moments, battles, and magical worlds.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sfx-packs">
+      <h2>Sound Effect Packs</h2>
+      <p class="section-intro">
+        Game-ready sound effect libraries for menus, interactions, gameplay feedback, stylized action, and environmental atmosphere.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Super Bit Boy’s Casual UI SFX Pack</h3>
+          <p>Clean, satisfying UI and feedback sounds for buttons, menus, popups, confirmations, rewards, and casual game flow.</p>
+        </div>
+
+        <div class="card">
+          <h3>Super Bit Boy’s Platformer Adventure SFX Pack</h3>
+          <p>Gameplay-driven sound effects for movement, pickups, actions, interactions, and platformer-style adventure moments.</p>
+        </div>
+
+        <div class="card">
+          <h3>Super Bit Boy’s Epic RPG SFX Pack</h3>
+          <p>Fantasy-inspired effects for spells, impacts, magical actions, combat moments, and adventure gameplay.</p>
+        </div>
+
+        <div class="card">
+          <h3>Super Bit Boy’s Sci-Fi Ambience SFX Pack</h3>
+          <p>Atmospheric sci-fi environmental sounds and futuristic ambience for ships, labs, stations, machinery, and space settings.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>YouTube Showcases</h2>
+      <div class="youtube-box">
+        <p class="section-intro">
+          Pack previews and showcase videos are being released on the Super Bit Boy Audio YouTube channel.
+        </p>
+        <a href="https://www.youtube.com/@SuperBitBoyAudio" target="_blank" rel="noopener noreferrer">
+          https://www.youtube.com/@SuperBitBoyAudio
+        </a>
+
+        <ol class="video-list">
+          <li>Cozy Game Music Pack Showcase</li>
+          <li>Sci-Fi Action Music Pack Showcase</li>
+          <li>Platformer Adventure Music Pack Showcase</li>
+          <li>Epic RPG Music Pack Showcase</li>
+          <li>Casual UI SFX Pack Showcase</li>
+          <li>Platformer Adventure SFX Pack Showcase</li>
+          <li>Epic RPG SFX Pack Showcase</li>
+          <li>Sci-Fi Ambience SFX Pack Showcase</li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="footer">
+      © Super Bit Boy
     </div>
   </div>
 </body>
