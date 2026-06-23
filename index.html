@@ -9,7 +9,6 @@
       box-sizing: border-box;
     }
 
-    /* Added Smooth Scrolling */
     html {
       scroll-behavior: smooth; 
     }
@@ -140,10 +139,9 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
-      transition: all 0.3s ease; /* Smooth hover transition */
+      transition: all 0.3s ease;
     }
 
-    /* Added Card Hover Effect */
     .card:hover {
       transform: translateY(-5px);
       border-color: var(--accent);
@@ -165,10 +163,9 @@
       color: var(--muted);
       line-height: 1.6;
       font-size: 15px;
-      flex-grow: 1; /* Pushes player/buttons to the bottom */
+      flex-grow: 1; 
     }
 
-    /* Added Audio Player Styling */
     .audio-player {
       width: 100%;
       height: 40px;
@@ -176,72 +173,109 @@
       border-radius: 8px;
     }
 
-    /* Added Card Action Buttons */
     .card-actions {
       display: flex;
-      gap: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-top: auto;
     }
 
     .card-actions .btn-small {
-      flex: 1;
+      flex: 1 1 calc(33.333% - 8px); 
       text-align: center;
-      padding: 10px;
+      padding: 10px 6px;
       border-radius: 8px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
       color: white;
       background: rgba(255,255,255,0.1);
       transition: background 0.2s;
+      white-space: nowrap; 
     }
 
     .card-actions .btn-small:hover {
       background: var(--accent);
     }
 
-    .youtube-box {
+    .site-footer {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--panel-border);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      margin: 10px 0 0 0;
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .link-group {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    .youtube-box a {
-      color: var(--accent2);
-      font-weight: bold;
-      text-decoration: none;
-      word-break: break-word;
+    .link-group h4 {
+      margin: 0 0 5px 0;
+      color: var(--text);
+      font-size: 16px;
     }
 
-    .youtube-box a:hover {
+    .link-group a {
+      color: var(--accent2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .link-group a:hover {
+      color: white;
       text-decoration: underline;
     }
 
-    .video-list {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .footer {
-      margin-top: 36px;
+    .footer-bottom {
       text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px;
       color: #aeb8ec;
-      font-size: 14px;
     }
 
     @media (max-width: 820px) {
       .grid {
         grid-template-columns: 1fr;
       }
-
       h1 {
         font-size: 40px;
       }
-
       .section {
         padding: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-links {
+        gap: 30px;
+        flex-direction: column;
+      }
+      .card-actions .btn-small {
+        flex: 1 1 100%; 
       }
     }
   </style>
@@ -269,7 +303,6 @@
         Original background music collections designed for indie developers, trailers, menus, gameplay loops, and game world atmosphere.
       </p>
 
-      <!-- REORDERED GRID: Epic, Platformer, Cozy, Sci-Fi -->
       <div class="grid">
         <!-- UPPER LEFT: Epic -->
         <div class="card">
@@ -279,8 +312,9 @@
             <source src="assets/audio/bgm/epic-preview.mp3" type="audio/mpeg">
           </audio>
           <div class="card-actions">
-            <a href="#" class="btn-small">Get on Unity</a>
-            <a href="#" class="btn-small">Get on Itch.io</a>
+            <a href="#" class="btn-small">Unity</a>
+            <a href="#" class="btn-small">Fab</a>
+            <a href="#" class="btn-small">itch.io</a>
           </div>
         </div>
 
@@ -292,8 +326,9 @@
             <source src="assets/audio/bgm/platformer-preview.mp3" type="audio/mpeg">
           </audio>
           <div class="card-actions">
-            <a href="#" class="btn-small">Get on Unity</a>
-            <a href="#" class="btn-small">Get on Itch.io</a>
+            <a href="#" class="btn-small">Unity</a>
+            <a href="#" class="btn-small">Fab</a>
+            <a href="#" class="btn-small">itch.io</a>
           </div>
         </div>
 
@@ -305,8 +340,9 @@
             <source src="assets/audio/bgm/cozy-preview.mp3" type="audio/mpeg">
           </audio>
           <div class="card-actions">
-            <a href="#" class="btn-small">Get on Unity</a>
-            <a href="#" class="btn-small">Get on Itch.io</a>
+            <a href="#" class="btn-small">Unity</a>
+            <a href="#" class="btn-small">Fab</a>
+            <a href="#" class="btn-small">itch.io</a>
           </div>
         </div>
 
@@ -318,8 +354,9 @@
             <source src="assets/audio/bgm/scifi-preview.mp3" type="audio/mpeg">
           </audio>
           <div class="card-actions">
-            <a href="#" class="btn-small">Get on Unity</a>
-            <a href="#" class="btn-small">Get on Itch.io</a>
+            <a href="#" class="btn-small">Unity</a>
+            <a href="#" class="btn-small">Fab</a>
+            <a href="#" class="btn-small">itch.io</a>
           </div>
         </div>
       </div>
@@ -331,7 +368,6 @@
         Game-ready sound effect libraries for menus, interactions, gameplay feedback, stylized action, and environmental atmosphere.
       </p>
 
-      <!-- REORDERED GRID: Epic, Platformer, Casual UI (Cozy equivalent), Sci-Fi -->
       <div class="grid">
         <!-- UPPER LEFT: Epic -->
         <div class="card">
@@ -341,8 +377,9 @@
             <source src="assets/audio/sfx/epic-sfx-preview.mp3" type="audio/mpeg">
           </audio>
           <div class="card-actions">
-            <a href="#" class="btn-small">Get on Unity</a>
-            <a href="#" class="btn-small">Get on Itch.io</a>
+            <a href="#" class="btn-small">Unity</a>
+            <a href="#" class="btn-small">Fab</a>
+            <a href="#" class="btn-small">itch.io</a>
           </div>
         </div>
 
@@ -354,8 +391,9 @@
             <source src="assets/audio/sfx/platformer-sfx-preview.mp3" type="audio/mpeg">
           </audio>
           <div class="card-actions">
-            <a href="#" class="btn-small">Get on Unity</a>
-            <a href="#" class="btn-small">Get on Itch.io</a>
+            <a href="#" class="btn-small">Unity</a>
+            <a href="#" class="btn-small">Fab</a>
+            <a href="#" class="btn-small">itch.io</a>
           </div>
         </div>
 
@@ -367,8 +405,9 @@
             <source src="assets/audio/sfx/ui-sfx-preview.mp3" type="audio/mpeg">
           </audio>
           <div class="card-actions">
-            <a href="#" class="btn-small">Get on Unity</a>
-            <a href="#" class="btn-small">Get on Itch.io</a>
+            <a href="#" class="btn-small">Unity</a>
+            <a href="#" class="btn-small">Fab</a>
+            <a href="#" class="btn-small">itch.io</a>
           </div>
         </div>
 
@@ -380,39 +419,45 @@
             <source src="assets/audio/sfx/scifi-sfx-preview.mp3" type="audio/mpeg">
           </audio>
           <div class="card-actions">
-            <a href="#" class="btn-small">Get on Unity</a>
-            <a href="#" class="btn-small">Get on Itch.io</a>
+            <a href="#" class="btn-small">Unity</a>
+            <a href="#" class="btn-small">Fab</a>
+            <a href="#" class="btn-small">itch.io</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>YouTube Showcases</h2>
-      <div class="youtube-box">
-        <p class="section-intro">
-          Pack previews and showcase videos are being released on the Super Bit Boy Audio YouTube channel.
-        </p>
-        <a href="https://www.youtube.com/@SuperBitBoyAudio" target="_blank" rel="noopener noreferrer">
-          https://www.youtube.com/@SuperBitBoyAudio
-        </a>
+    <!-- New Multi-Platform Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        
+        <div class="footer-brand">
+          <h3 style="margin:0; color: white;">Super Bit Boy</h3>
+          <p>Game-ready audio for cozy worlds, epic adventures, and far-off galaxies. Built for indie developers.</p>
+        </div>
 
-        <ol class="video-list">
-          <li>Cozy Game Music Pack Showcase</li>
-          <li>Sci-Fi Action Music Pack Showcase</li>
-          <li>Platformer Adventure Music Pack Showcase</li>
-          <li>Epic RPG Music Pack Showcase</li>
-          <li>Casual UI SFX Pack Showcase</li>
-          <li>Platformer Adventure SFX Pack Showcase</li>
-          <li>Epic RPG SFX Pack Showcase</li>
-          <li>Sci-Fi Ambience SFX Pack Showcase</li>
-        </ol>
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>Storefronts</h4>
+            <a href="#" target="_blank">Unity Asset Store</a>
+            <a href="#" target="_blank">Fab (Unreal Engine)</a>
+            <a href="#" target="_blank">itch.io</a>
+          </div>
+
+          <div class="link-group">
+            <h4>Connect</h4>
+            <a href="https://www.youtube.com/@SuperBitBoyAudio" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
+            <a href="#">Twitter / X</a>
+            <a href="mailto:your-email@example.com">Contact Support</a>
+          </div>
+        </div>
+
       </div>
-    </section>
 
-    <div class="footer">
-      © 2026 Super Bit Boy
-    </div>
+      <div class="footer-bottom">
+        © 2026 Super Bit Boy. All rights reserved.
+      </div>
+    </footer>
   </div>
 </body>
 </html>
