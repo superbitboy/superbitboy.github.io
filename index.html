@@ -9,6 +9,11 @@
       box-sizing: border-box;
     }
 
+    /* Added Smooth Scrolling */
+    html {
+      scroll-behavior: smooth; 
+    }
+
     :root {
       --bg1: #090b17;
       --bg2: #121935;
@@ -84,11 +89,21 @@
       color: white;
       background: linear-gradient(135deg, var(--accent), #6a96ff);
       box-shadow: 0 10px 24px rgba(97, 95, 255, 0.24);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(97, 95, 255, 0.35);
     }
 
     .button.secondary {
       background: var(--button-dark);
       box-shadow: none;
+    }
+
+    .button.secondary:hover {
+      background: #313b73;
     }
 
     .section {
@@ -123,19 +138,66 @@
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 16px;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease; /* Smooth hover transition */
+    }
+
+    /* Added Card Hover Effect */
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(139, 124, 255, 0.15);
+      background: rgba(255,255,255,0.09);
     }
 
     .card h3 {
       margin: 0 0 10px;
       font-size: 21px;
       line-height: 1.35;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .card p {
-      margin: 0;
+      margin: 0 0 15px 0;
       color: var(--muted);
       line-height: 1.6;
       font-size: 15px;
+      flex-grow: 1; /* Pushes player/buttons to the bottom */
+    }
+
+    /* Added Audio Player Styling */
+    .audio-player {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    /* Added Card Action Buttons */
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .card-actions .btn-small {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.2s;
+    }
+
+    .card-actions .btn-small:hover {
+      background: var(--accent);
     }
 
     .youtube-box {
@@ -207,25 +269,58 @@
         Original background music collections designed for indie developers, trailers, menus, gameplay loops, and game world atmosphere.
       </p>
 
+      <!-- REORDERED GRID: Epic, Platformer, Cozy, Sci-Fi -->
       <div class="grid">
+        <!-- UPPER LEFT: Epic -->
         <div class="card">
-          <h3>Super Bit Boy’s Cozy Game Music Pack</h3>
-          <p>Warm, relaxing, feel-good music for cozy games, life sims, casual projects, and calm indie worlds.</p>
-        </div>
-
-        <div class="card">
-          <h3>Super Bit Boy’s Sci-Fi Action Music Pack</h3>
-          <p>Energetic futuristic music for sci-fi action, space settings, cyber-tech worlds, and high-intensity gameplay.</p>
-        </div>
-
-        <div class="card">
-          <h3>Super Bit Boy’s Platformer Adventure Music Pack</h3>
-          <p>Upbeat and adventurous music for platformers, exploration, colorful levels, and light action gameplay.</p>
-        </div>
-
-        <div class="card">
-          <h3>Super Bit Boy’s Epic RPG Music Pack</h3>
+          <h3><span>🐉</span> Super Bit Boy’s Epic RPG Music Pack</h3>
           <p>Heroic fantasy music built for quests, exploration, emotional story moments, battles, and magical worlds.</p>
+          <audio controls class="audio-player">
+            <source src="assets/audio/bgm/epic-preview.mp3" type="audio/mpeg">
+          </audio>
+          <div class="card-actions">
+            <a href="#" class="btn-small">Get on Unity</a>
+            <a href="#" class="btn-small">Get on Itch.io</a>
+          </div>
+        </div>
+
+        <!-- UPPER RIGHT: Platformer -->
+        <div class="card">
+          <h3><span>🍄</span> Super Bit Boy’s Platformer Adventure Music Pack</h3>
+          <p>Upbeat and adventurous music for platformers, exploration, colorful levels, and light action gameplay.</p>
+          <audio controls class="audio-player">
+            <source src="assets/audio/bgm/platformer-preview.mp3" type="audio/mpeg">
+          </audio>
+          <div class="card-actions">
+            <a href="#" class="btn-small">Get on Unity</a>
+            <a href="#" class="btn-small">Get on Itch.io</a>
+          </div>
+        </div>
+
+        <!-- LOWER LEFT: Cozy -->
+        <div class="card">
+          <h3><span>☕</span> Super Bit Boy’s Cozy Game Music Pack</h3>
+          <p>Warm, relaxing, feel-good music for cozy games, life sims, casual projects, and calm indie worlds.</p>
+          <audio controls class="audio-player">
+            <source src="assets/audio/bgm/cozy-preview.mp3" type="audio/mpeg">
+          </audio>
+          <div class="card-actions">
+            <a href="#" class="btn-small">Get on Unity</a>
+            <a href="#" class="btn-small">Get on Itch.io</a>
+          </div>
+        </div>
+
+        <!-- LOWER RIGHT: Sci-Fi -->
+        <div class="card">
+          <h3><span>🚀</span> Super Bit Boy’s Sci-Fi Action Music Pack</h3>
+          <p>Energetic futuristic music for sci-fi action, space settings, cyber-tech worlds, and high-intensity gameplay.</p>
+          <audio controls class="audio-player">
+            <source src="assets/audio/bgm/scifi-preview.mp3" type="audio/mpeg">
+          </audio>
+          <div class="card-actions">
+            <a href="#" class="btn-small">Get on Unity</a>
+            <a href="#" class="btn-small">Get on Itch.io</a>
+          </div>
         </div>
       </div>
     </section>
@@ -236,25 +331,58 @@
         Game-ready sound effect libraries for menus, interactions, gameplay feedback, stylized action, and environmental atmosphere.
       </p>
 
+      <!-- REORDERED GRID: Epic, Platformer, Casual UI (Cozy equivalent), Sci-Fi -->
       <div class="grid">
+        <!-- UPPER LEFT: Epic -->
         <div class="card">
-          <h3>Super Bit Boy’s Casual UI SFX Pack</h3>
-          <p>Clean, satisfying UI and feedback sounds for buttons, menus, popups, confirmations, rewards, and casual game flow.</p>
-        </div>
-
-        <div class="card">
-          <h3>Super Bit Boy’s Platformer Adventure SFX Pack</h3>
-          <p>Gameplay-driven sound effects for movement, pickups, actions, interactions, and platformer-style adventure moments.</p>
-        </div>
-
-        <div class="card">
-          <h3>Super Bit Boy’s Epic RPG SFX Pack</h3>
+          <h3><span>⚔️</span> Super Bit Boy’s Epic RPG SFX Pack</h3>
           <p>Fantasy-inspired effects for spells, impacts, magical actions, combat moments, and adventure gameplay.</p>
+          <audio controls class="audio-player">
+            <source src="assets/audio/sfx/epic-sfx-preview.mp3" type="audio/mpeg">
+          </audio>
+          <div class="card-actions">
+            <a href="#" class="btn-small">Get on Unity</a>
+            <a href="#" class="btn-small">Get on Itch.io</a>
+          </div>
         </div>
 
+        <!-- UPPER RIGHT: Platformer -->
         <div class="card">
-          <h3>Super Bit Boy’s Sci-Fi Ambience SFX Pack</h3>
+          <h3><span>⭐</span> Super Bit Boy’s Platformer Adventure SFX Pack</h3>
+          <p>Gameplay-driven sound effects for movement, pickups, actions, interactions, and platformer-style adventure moments.</p>
+          <audio controls class="audio-player">
+            <source src="assets/audio/sfx/platformer-sfx-preview.mp3" type="audio/mpeg">
+          </audio>
+          <div class="card-actions">
+            <a href="#" class="btn-small">Get on Unity</a>
+            <a href="#" class="btn-small">Get on Itch.io</a>
+          </div>
+        </div>
+
+        <!-- LOWER LEFT: Cozy (Casual UI) -->
+        <div class="card">
+          <h3><span>✨</span> Super Bit Boy’s Casual UI SFX Pack</h3>
+          <p>Clean, satisfying UI and feedback sounds for buttons, menus, popups, confirmations, rewards, and casual game flow.</p>
+          <audio controls class="audio-player">
+            <source src="assets/audio/sfx/ui-sfx-preview.mp3" type="audio/mpeg">
+          </audio>
+          <div class="card-actions">
+            <a href="#" class="btn-small">Get on Unity</a>
+            <a href="#" class="btn-small">Get on Itch.io</a>
+          </div>
+        </div>
+
+        <!-- LOWER RIGHT: Sci-Fi -->
+        <div class="card">
+          <h3><span>🛰️</span> Super Bit Boy’s Sci-Fi Ambience SFX Pack</h3>
           <p>Atmospheric sci-fi environmental sounds and futuristic ambience for ships, labs, stations, machinery, and space settings.</p>
+          <audio controls class="audio-player">
+            <source src="assets/audio/sfx/scifi-sfx-preview.mp3" type="audio/mpeg">
+          </audio>
+          <div class="card-actions">
+            <a href="#" class="btn-small">Get on Unity</a>
+            <a href="#" class="btn-small">Get on Itch.io</a>
+          </div>
         </div>
       </div>
     </section>
@@ -283,7 +411,7 @@
     </section>
 
     <div class="footer">
-      © Super Bit Boy
+      © 2026 Super Bit Boy
     </div>
   </div>
 </body>
