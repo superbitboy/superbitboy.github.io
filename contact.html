@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080e1a">
+  <title>Contact Super Bit Boy — Let’s Talk Game Audio</title>
+  <meta name="description" content="Have a question about Super Bit Boy’s game music or sound effect packs? Get in touch about a pack, support, or your next game.">
+  <link rel="canonical" href="https://superbitboy.github.io/contact.html">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contact.css">
+  <script src="contact.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contact-form">Skip to the contact form</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a href="index.html" class="brand" aria-label="Super Bit Boy home"><img src="logo-wordmark.webp" width="180" height="90" alt="Super Bit Boy’s BGM + SFX"></a>
+      <nav aria-label="Main navigation"><a href="index.html#packs">The packs</a><a href="index.html#about">The sound</a><a href="index.html#storefronts">Where to buy</a><a href="contact.html" aria-current="page">Contact</a></nav>
+      <a class="channel-link" href="https://www.youtube.com/@SuperBitBoyAudio" target="_blank" rel="noopener noreferrer" aria-label="Super Bit Boy on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 7.2a3 3 0 0 0-2.1-2.1C17 4.6 12 4.6 12 4.6s-5 0-6.9.5A3 3 0 0 0 3 7.2 31 31 0 0 0 2.5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8Z"/><path class="play-cutout" d="m10 8.5 6 3.5-6 3.5Z"/></svg><span>YouTube</span><span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main class="contact-main shell">
+    <a class="back-link" href="index.html">← Back to the collection</a>
+    <div class="contact-layout">
+      <section class="contact-intro" aria-labelledby="contact-heading">
+        <p class="eyebrow cyan">A good game starts with a conversation</p>
+        <h1 id="contact-heading">Let’s talk<br><span>game audio.</span></h1>
+        <p>Got a question about a pack? Need a hand? Or just want to say hello? You’re in the right place.</p>
+        <p>Send a message and Super Bit Boy can reply directly to the email address you provide.</p>
+        <div class="direct-contact"><span class="eyebrow">Prefer your own email app?</span><a href="mailto:superbitboy85@gmail.com">superbitboy85@gmail.com <span aria-hidden="true">↗</span></a></div>
+        <img class="contact-mascot" src="logo-crest.webp" width="180" height="180" alt="Super Bit Boy wearing headphones above the SBB crest">
+      </section>
+      <section class="contact-panel" aria-labelledby="form-heading">
+        <h2 id="form-heading">What’s on your mind?</h2>
+        <p class="form-intro">Tell us a little about it. We’d love to hear from you.</p>
+        <form id="contact-form" action="https://formsubmit.co/superbitboy85@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Super Bit Boy — website enquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://superbitboy.github.io/thanks.html">
+          <div class="form-honey" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+          <div class="form-row">
+            <div class="form-field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required maxlength="100" placeholder="What should we call you?"></div>
+            <div class="form-field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"><span class="field-hint">This is where we’ll reply.</span></div>
+          </div>
+          <div class="form-field"><label for="topic">What’s it about?</label><select id="topic" name="topic" required><option value="" disabled selected>Choose a topic</option><option>General question</option><option>Help with a pack</option><option>Formats or licensing</option><option>Something else</option></select></div>
+          <div class="form-field"><label for="pack">Which pack? <span class="optional">Optional</span></label><select id="pack" name="pack"><option value="Not pack-specific">Not about a specific pack</option><optgroup label="Music packs"><option>Epic RPG Music Pack</option><option>Platformer Adventure Music Pack</option><option>Cozy Game Music Pack</option><option>Sci-Fi Action Music Pack</option></optgroup><optgroup label="Sound effect packs"><option>Epic RPG SFX Pack</option><option>Platformer Adventure SFX Pack</option><option>Casual UI SFX Pack</option><option>Sci-Fi Ambience SFX Pack</option></optgroup></select></div>
+          <div class="form-field"><label for="message">Your message</label><textarea id="message" name="message" rows="6" required minlength="10" maxlength="10000" placeholder="Tell us what you’re working on or how we can help…"></textarea></div>
+          <div class="form-feedback" id="form-feedback" role="alert" tabindex="-1" hidden></div>
+          <button class="button button-primary contact-submit" type="submit">Send message <span aria-hidden="true">↗</span></button>
+          <p class="form-note">Your name, email, and message are sent via <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a> so Super Bit Boy can respond.</p>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer shell">
+    <div class="footer-top"><a href="index.html" aria-label="Super Bit Boy home"><img src="logo-wordmark.webp" alt="Super Bit Boy’s BGM + SFX" width="170" height="85" loading="lazy"></a><p>Music & sound effects.<br>Made for your next adventure.</p><nav aria-label="Footer navigation"><a href="index.html#packs">The packs</a><a href="index.html#storefronts">Storefronts</a><a href="contact.html" aria-current="page">Contact</a><a href="https://www.youtube.com/@SuperBitBoyAudio" target="_blank" rel="noopener noreferrer">YouTube ↗</a></nav></div>
+    <div class="footer-bottom"><span>© <span id="year">2026</span> Super Bit Boy. All rights reserved.</span><span>Small studio. Big game energy. <span class="tiny-spark" aria-hidden="true">✦</span></span></div>
+  </footer>
+</body>
+</html>
