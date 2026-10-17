@@ -14,12 +14,14 @@ const productLinks = {
 };
 
 const cards = [...document.querySelectorAll('.pack-card')];
+const packGroups = [...document.querySelectorAll('[data-pack-group]')];
 const filters = [...document.querySelectorAll('[data-filter]')];
 const resultCount = document.querySelector('.result-count');
 const dialog = document.querySelector('#pack-dialog');
 let previousFocus = null;
 
 function filterPacks(type) {
+  for (const group of packGroups) group.hidden = type !== 'all' && group.dataset.packGroup !== type;
   for (const card of cards) card.hidden = type !== 'all' && card.dataset.type !== type;
   for (const filter of filters) {
     const active = filter.dataset.filter === type;
@@ -46,7 +48,7 @@ function openPack(id) {
   const card = cards.find(item => item.dataset.id === id);
   if (!card) return;
   previousFocus = document.activeElement;
-  const title = card.querySelector('h3').innerText.replace(/\n/g, ' ');
+  const title = card.querySelector('.pack-title').innerText.replace(/\n/g, ' ');
   const sourceImage = card.querySelector('img');
   document.querySelector('#dialog-title').textContent = title;
   document.querySelector('#dialog-category').textContent = card.dataset.type === 'music' ? 'Background music / BGM' : 'Sound effects / SFX';
