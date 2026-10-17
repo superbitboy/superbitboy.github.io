@@ -1,6 +1,6 @@
 'use strict';
 
-// Add product URLs as listings launch. A null URL is shown as Coming soon.
+// Replace null entries with direct product URLs. Until then, links open the storefront.
 // Keys match each card's data-id. Example: 'epic-music': { unity: 'https://…' }
 const productLinks = {
   'epic-music': { unity: null, fab: null, itch: null },
@@ -11,6 +11,12 @@ const productLinks = {
   'platformer-sfx': { unity: null, fab: null, itch: null },
   'ui-sfx': { unity: null, fab: null, itch: null },
   'scifi-sfx': { unity: null, fab: null, itch: null },
+};
+
+const storefrontLinks = {
+  unity: 'https://assetstore.unity.com/',
+  fab: 'https://www.fab.com/',
+  itch: 'https://itch.io/',
 };
 
 const cards = [...document.querySelectorAll('.pack-card')];
@@ -60,18 +66,16 @@ function openPack(id) {
   const storeContainer = document.querySelector('#dialog-store-links');
   storeContainer.replaceChildren();
   for (const [key, name] of [['unity', 'Unity Asset Store'], ['fab', 'Fab'], ['itch', 'itch.io']]) {
-    const url = productLinks[id]?.[key];
-    const element = document.createElement(url ? 'a' : 'div');
-    element.className = 'store-placeholder';
-    if (url) {
-      element.href = url;
-      element.target = '_blank';
-      element.rel = 'noopener noreferrer';
-    }
+    const productUrl = productLinks[id]?.[key];
+    const element = document.createElement('a');
+    element.className = 'store-link';
+    element.href = productUrl || storefrontLinks[key];
+    element.target = '_blank';
+    element.rel = 'noopener noreferrer';
     const storeName = document.createElement('span');
     storeName.textContent = name;
     const status = document.createElement('span');
-    status.textContent = url ? 'View listing ↗' : 'Coming soon';
+    status.textContent = productUrl ? 'View listing ↗' : 'Visit store ↗';
     element.append(storeName, status);
     storeContainer.append(element);
   }
