@@ -8,9 +8,9 @@ This is a buildless, responsive GitHub Pages website. `index.html` holds the eig
 
 Run `python3 -m http.server 4173` in this folder and open http://localhost:4173.
 
-## Launching product listings
+## Product listing URLs
 
-Update the `productLinks` object at the top of `script.js` with the actual Unity Asset Store, Fab, and itch.io product URLs for each pack. Leave unpublished URLs as `null`; they appear as “Coming soon” without dead links. Update the storefront section and FAQ in `index.html` when listings launch.
+Update the `productLinks` object at the top of `script.js` with the actual Unity Asset Store, Fab, and itch.io product URLs for each pack. Entries set to `null` use the matching storefront homepage with a “Visit store” label. Direct product URLs use “View listing.” The storefront cards in `index.html` also open each store homepage.
 
 The previous site did not contain its referenced audio preview files. This version does not show broken players. Add licensed, approved audio preview files before adding playback controls.
 
