@@ -63,6 +63,10 @@ function openPack(id) {
   dialogImage.src = sourceImage.getAttribute('src');
   dialogImage.alt = sourceImage.alt;
   document.querySelector('#dialog-tags').replaceChildren(...[...card.querySelectorAll('.pack-tags span')].map(tag => tag.cloneNode(true)));
+  const preview = card.querySelector('.preview-link');
+  const dialogPreview = document.querySelector('#dialog-preview');
+  dialogPreview.replaceChildren(...(preview ? [preview.cloneNode(true)] : []));
+  dialogPreview.hidden = !preview;
   const storeContainer = document.querySelector('#dialog-store-links');
   storeContainer.replaceChildren();
   for (const [key, name] of [['unity', 'Unity Asset Store'], ['fab', 'Fab'], ['itch', 'itch.io']]) {

@@ -29,3 +29,10 @@ h1 small{display:block;margin-top:18px;font-size:clamp(20px,2.2vw,30px);line-hei
 #hero-heading{font-size:clamp(24px,9.6cqi,64px);white-space:nowrap}
 .store-card:hover,.store-link:hover{border-color:var(--cyan);background:#17283a}
 .store-card:hover .status-badge,.store-link:hover span:last-child{color:var(--cyan)}
+
+.preview-link{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 8px;border:1px solid #713b46;border-radius:7px;background:#301e2a;color:#ffe2e6;font-size:11px;font-weight:700;line-height:1.25}
+.preview-link:hover{border-color:#f47b8e;background:#442533;color:#fff}
+.preview-play{display:grid;place-items:center;flex:none;width:18px;height:13px;border-radius:4px;background:#e9364e;color:#fff;font-size:7px}
+/* Keep the preview link above the stretched Pack details button. */
+.pack-card .preview-link{position:relative;z-index:3;align-self:flex-start;max-width:100%;margin-top:14px}
+#dialog-preview{margin-top:18px}
