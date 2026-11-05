@@ -58,7 +58,7 @@ function openPack(id) {
   const title = card.querySelector('.pack-title').innerText.replace(/\n/g, ' ');
   const sourceImage = card.querySelector('img');
   const preview = card.querySelector('.preview-link');
-  const videoId = card.dataset.type === 'sfx' && preview?.hostname === 'youtu.be'
+  const videoId = preview?.hostname === 'youtu.be'
     ? preview.pathname.match(/^\/([A-Za-z0-9_-]{11})\/?$/)?.[1]
     : null;
   document.querySelector('#dialog-title').textContent = title;
