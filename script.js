@@ -24,6 +24,7 @@ const packGroups = [...document.querySelectorAll('[data-pack-group]')];
 const filters = [...document.querySelectorAll('[data-filter]')];
 const resultCount = document.querySelector('.result-count');
 const dialog = document.querySelector('#pack-dialog');
+const dialogPlayer = document.querySelector('#dialog-player');
 let previousFocus = null;
 
 function filterPacks(type) {
@@ -56,14 +57,30 @@ function openPack(id) {
   previousFocus = document.activeElement;
   const title = card.querySelector('.pack-title').innerText.replace(/\n/g, ' ');
   const sourceImage = card.querySelector('img');
+  const preview = card.querySelector('.preview-link');
+  const videoId = card.dataset.type === 'sfx' && preview?.hostname === 'youtu.be'
+    ? preview.pathname.match(/^\/([A-Za-z0-9_-]{11})\/?$/)?.[1]
+    : null;
   document.querySelector('#dialog-title').textContent = title;
   document.querySelector('#dialog-category').textContent = card.dataset.type === 'music' ? 'Background music / BGM' : 'Sound effects / SFX';
   document.querySelector('#dialog-description').textContent = card.querySelector('.pack-description').textContent;
   const dialogImage = document.querySelector('#dialog-image');
-  dialogImage.src = sourceImage.getAttribute('src');
-  dialogImage.alt = sourceImage.alt;
+  dialogImage.hidden = Boolean(videoId);
+  dialogPlayer.hidden = !videoId;
+  dialogPlayer.replaceChildren();
+  if (videoId) {
+    const frame = document.createElement('iframe');
+    frame.title = `${title} YouTube preview`;
+    frame.src = `https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1`;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.allow = 'encrypted-media; picture-in-picture';
+    frame.allowFullscreen = true;
+    dialogPlayer.append(frame);
+  } else {
+    dialogImage.src = sourceImage.getAttribute('src');
+    dialogImage.alt = sourceImage.alt;
+  }
   document.querySelector('#dialog-tags').replaceChildren(...[...card.querySelectorAll('.pack-tags span')].map(tag => tag.cloneNode(true)));
-  const preview = card.querySelector('.preview-link');
   const dialogPreview = document.querySelector('#dialog-preview');
   dialogPreview.replaceChildren(...(preview ? [preview.cloneNode(true)] : []));
   dialogPreview.hidden = !preview;
@@ -97,6 +114,7 @@ dialog.addEventListener('click', event => {
   if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
 });
 dialog.addEventListener('close', () => {
+  dialogPlayer.replaceChildren();
   document.body.classList.remove('dialog-open');
   if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
 });

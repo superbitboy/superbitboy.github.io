@@ -36,3 +36,7 @@ h1 small{display:block;margin-top:18px;font-size:clamp(20px,2.2vw,30px);line-hei
 /* Keep the preview link above the stretched Pack details button. */
 .pack-card .preview-link{position:relative;z-index:3;align-self:flex-start;max-width:100%;margin-top:14px}
 #dialog-preview{margin-top:18px}
+
+.dialog-player{display:grid;align-content:center;min-width:0;background:#091222}
+.dialog-player iframe{display:block;width:100%;height:auto;min-height:200px;aspect-ratio:16/9;border:0;background:#000}
+@media(max-width:620px){.dialog-player{padding-top:54px}}
