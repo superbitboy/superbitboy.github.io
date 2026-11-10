@@ -3,20 +3,20 @@
 // Replace null entries with direct product URLs. Until then, links open the storefront.
 // Keys match each card's data-id. Example: 'epic-music': { unity: 'https://…' }
 const productLinks = {
-  'epic-music': { unity: null, fab: null, itch: null },
-  'platformer-music': { unity: null, fab: null, itch: null },
-  'cozy-music': { unity: null, fab: null, itch: null },
-  'scifi-music': { unity: null, fab: null, itch: null },
-  'epic-sfx': { unity: null, fab: null, itch: null },
-  'platformer-sfx': { unity: null, fab: null, itch: null },
-  'ui-sfx': { unity: null, fab: null, itch: null },
-  'scifi-sfx': { unity: null, fab: null, itch: null },
+  'epic-music': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/epic-rpg-music-pack' },
+  'platformer-music': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/platformer-adventure-music-pack' },
+  'cozy-music': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/cozy-game-music-pack' },
+  'scifi-music': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/sci-fi-action-music-pack' },
+  'epic-sfx': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/epic-rpg-sfx-pack' },
+  'platformer-sfx': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/platformer-adventure-sfx-pack' },
+  'ui-sfx': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/casual-ui-sfx-pack' },
+  'scifi-sfx': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/sci-fi-ambience-sfx-pack' },
 };
 
 const storefrontLinks = {
   unity: 'https://assetstore.unity.com/',
   fab: 'https://www.fab.com/',
-  itch: 'https://itch.io/',
+  itch: 'https://superbitboy.itch.io/',
 };
 
 const cards = [...document.querySelectorAll('.pack-card')];
