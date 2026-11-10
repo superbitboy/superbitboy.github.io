@@ -5,11 +5,7 @@ const feedback = document.querySelector('#form-feedback');
 const submitButton = contactForm.querySelector('button[type="submit"]');
 
 function showError(message) {
-  feedback.replaceChildren(document.createTextNode(message + ' '));
-  const emailLink = document.createElement('a');
-  emailLink.href = 'mailto:superbitboy85@gmail.com';
-  emailLink.textContent = 'Email Super Bit Boy directly';
-  feedback.append(emailLink, document.createTextNode('.'));
+  feedback.textContent = message;
   feedback.hidden = false;
   feedback.focus();
 }
@@ -47,7 +43,7 @@ contactForm.addEventListener('submit', async event => {
     if (String(result.success).toLowerCase() !== 'true') throw new Error('Submission was not confirmed');
     window.location.assign('thanks.html');
   } catch {
-    showError('We couldn’t confirm your message was sent. Your text is still here. Please try again, or');
+    showError('We couldn’t confirm your message was sent. Your text is still here. Please try again in a moment.');
   } finally {
     clearTimeout(timeout);
     submitButton.disabled = false;

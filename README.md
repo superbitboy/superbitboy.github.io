@@ -22,4 +22,4 @@ GitHub Pages publishes the root of the `main` branch. No package installation, e
 
 `contact.html` posts to FormSubmit for delivery to `superbitboy85@gmail.com`. `contact.js` sends the visitor email as both `email` and `_replyto` so Reply in Gmail addresses the visitor. The native HTML POST is the fallback if JavaScript is unavailable. The provider requires one-time recipient activation.
 
-`contact.js` redirects to `thanks.html` only after the provider confirms success. Network, activation, and provider errors preserve the message and offer a direct email link. No email credentials or API keys are stored in this repository. The form includes a honeypot; the HTML fallback retains the provider’s default CAPTCHA.
+`contact.js` redirects to `thanks.html` only after the provider confirms success. Network, activation, and provider errors preserve the message so visitors can retry using the form. No email credentials or API keys are stored in this repository. The form includes a honeypot; the HTML fallback retains the provider’s default CAPTCHA.
