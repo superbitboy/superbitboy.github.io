@@ -15,8 +15,8 @@ const productLinks = {
 
 const storefrontLinks = {
   fab: 'https://www.fab.com/',
-  construct: 'https://www.construct.net/en/game-assets',
   itch: 'https://superbitboy.itch.io/',
+  construct: 'https://www.construct.net/en/game-assets',
 };
 
 const cards = [...document.querySelectorAll('.pack-card')];
@@ -86,7 +86,7 @@ function openPack(id) {
   dialogPreview.hidden = !preview;
   const storeContainer = document.querySelector('#dialog-store-links');
   storeContainer.replaceChildren();
-  for (const [key, name] of [['fab', 'Fab'], ['construct', 'Construct Asset Store'], ['itch', 'itch.io']]) {
+  for (const [key, name] of [['fab', 'Fab'], ['itch', 'itch.io'], ['construct', 'Construct Asset Store']]) {
     const productUrl = productLinks[id]?.[key];
     const element = document.createElement('a');
     element.className = 'store-link';
