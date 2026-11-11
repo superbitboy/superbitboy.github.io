@@ -1,21 +1,21 @@
 'use strict';
 
 // Replace null entries with direct product URLs. Until then, links open the storefront.
-// Keys match each card's data-id. Example: 'epic-music': { unity: 'https://…' }
+// Keys match each card's data-id. Example: 'epic-music': { fab: 'https://…' }
 const productLinks = {
-  'epic-music': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/epic-rpg-music-pack' },
-  'platformer-music': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/platformer-adventure-music-pack' },
-  'cozy-music': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/cozy-game-music-pack' },
-  'scifi-music': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/sci-fi-action-music-pack' },
-  'epic-sfx': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/epic-rpg-sfx-pack' },
-  'platformer-sfx': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/platformer-adventure-sfx-pack' },
-  'ui-sfx': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/casual-ui-sfx-pack' },
-  'scifi-sfx': { unity: null, fab: null, itch: 'https://superbitboy.itch.io/sci-fi-ambience-sfx-pack' },
+  'epic-music': { fab: null, construct: null, itch: 'https://superbitboy.itch.io/epic-rpg-music-pack' },
+  'platformer-music': { fab: null, construct: null, itch: 'https://superbitboy.itch.io/platformer-adventure-music-pack' },
+  'cozy-music': { fab: null, construct: null, itch: 'https://superbitboy.itch.io/cozy-game-music-pack' },
+  'scifi-music': { fab: null, construct: null, itch: 'https://superbitboy.itch.io/sci-fi-action-music-pack' },
+  'epic-sfx': { fab: null, construct: null, itch: 'https://superbitboy.itch.io/epic-rpg-sfx-pack' },
+  'platformer-sfx': { fab: null, construct: null, itch: 'https://superbitboy.itch.io/platformer-adventure-sfx-pack' },
+  'ui-sfx': { fab: null, construct: null, itch: 'https://superbitboy.itch.io/casual-ui-sfx-pack' },
+  'scifi-sfx': { fab: null, construct: null, itch: 'https://superbitboy.itch.io/sci-fi-ambience-sfx-pack' },
 };
 
 const storefrontLinks = {
-  unity: 'https://assetstore.unity.com/',
   fab: 'https://www.fab.com/',
+  construct: 'https://www.construct.net/en/game-assets',
   itch: 'https://superbitboy.itch.io/',
 };
 
@@ -86,7 +86,7 @@ function openPack(id) {
   dialogPreview.hidden = !preview;
   const storeContainer = document.querySelector('#dialog-store-links');
   storeContainer.replaceChildren();
-  for (const [key, name] of [['unity', 'Unity Asset Store'], ['fab', 'Fab'], ['itch', 'itch.io']]) {
+  for (const [key, name] of [['fab', 'Fab'], ['construct', 'Construct Asset Store'], ['itch', 'itch.io']]) {
     const productUrl = productLinks[id]?.[key];
     const element = document.createElement('a');
     element.className = 'store-link';
