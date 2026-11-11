@@ -3,6 +3,7 @@
 const contactForm = document.querySelector('#contact-form');
 const feedback = document.querySelector('#form-feedback');
 const submitButton = contactForm.querySelector('button[type="submit"]');
+const submissionTimeoutMs = 90_000;
 
 function showError(message) {
   feedback.textContent = message;
@@ -22,7 +23,7 @@ contactForm.addEventListener('submit', async event => {
   submitButton.textContent = 'Sending your message…';
   contactForm.setAttribute('aria-busy', 'true');
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 25000);
+  const timeout = setTimeout(() => controller.abort(), submissionTimeoutMs);
 
   try {
     const fields = Object.fromEntries(new FormData(contactForm));
@@ -43,7 +44,11 @@ contactForm.addEventListener('submit', async event => {
     if (String(result.success).toLowerCase() !== 'true') throw new Error('Submission was not confirmed');
     window.location.assign('thanks.html');
   } catch {
-    showError('We couldn’t confirm your message was sent. Your text is still here. Please try again in a moment.');
+    if (controller.signal.aborted) {
+      showError('We didn’t get a confirmation in time. Your message may have been sent, and your text is still here.');
+    } else {
+      showError('We couldn’t confirm delivery. Your text is still here. Please try again in a moment.');
+    }
   } finally {
     clearTimeout(timeout);
     submitButton.disabled = false;
